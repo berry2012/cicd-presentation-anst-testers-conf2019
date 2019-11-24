@@ -13,13 +13,13 @@
      * 6a - pipeline without Testing (2 stages)
      * 6b - pipeline with Testing (3 stages)
 
-![The Reference Architecture](/Users/olawale/Dropbox/waleworks/DevOps/AWSDevOpsExamPrep/code/testers-conf-cicd-demo/anst2019conference/refarchitecture.png)
+![The Reference Architecture](/refarchitecture.png)
 
-![Pipeline Architecture - without Testing stage](/Users/olawale/Dropbox/waleworks/DevOps/AWSDevOpsExamPrep/code/testers-conf-cicd-demo/anst2019conference/refarchitecture.png)
+![Pipeline Architecture - without Testing stage](/pipeline1.png)
 
-![Pipeline Architecture - with Testing stage](/Users/olawale/Dropbox/waleworks/DevOps/AWSDevOpsExamPrep/code/testers-conf-cicd-demo/anst2019conference/refarchitecture.png)
+![Pipeline Architecture - with Testing stage](/pipeline2.png)
 
-![Pipeline results](/Users/olawale/Dropbox/waleworks/DevOps/AWSDevOpsExamPrep/code/testers-conf-cicd-demo/anst2019conference/refarchitecture.png)
+![Pipeline results](/pipelineresults.png)
 
 
 ## Demo Summary
