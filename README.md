@@ -13,12 +13,16 @@
      * 6a - pipeline without Testing (2 stages)
      * 6b - pipeline with Testing (3 stages)
 
+## The Reference Architecture
 ![The Reference Architecture](/refarchitecture.png)
 
+## Pipeline Architecture - without Testing stage
 ![Pipeline Architecture - without Testing stage](/pipeline1.png)
 
+## Pipeline Architecture - with Testing stage
 ![Pipeline Architecture - with Testing stage](/pipeline2.png)
 
+## Pipeline results
 ![Pipeline results](/pipelineresults.png)
 
 
