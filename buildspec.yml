@@ -1,0 +1,27 @@
+version: 0.2
+
+# run-as: Linux-user-name
+
+phases: 
+    install:
+        runtime-versions:
+            nodejs: 10
+        commands:
+            - echo "a command to do something in the install phase"
+    pre_build:
+        commands: 
+            - echo "commands to run in the pre build phase"
+    build:
+        commands:
+            - echo "commands to run in the build phase"
+            - echo "@@@@@@About to run some tests@@@@"
+            - grep -Fq "conference" index.html
+    post_build:
+        commands:
+            - echo "we are in the post build phase"
+# artifacts:
+#   files:
+#     - location
+#     - location
+#   name: artifact-name
+            

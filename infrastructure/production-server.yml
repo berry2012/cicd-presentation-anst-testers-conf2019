@@ -1,0 +1,55 @@
+AWSTemplateFormatVersion: 2010-09-09
+
+Description: Create an EC2 instance in an Existing VPC and enable SSH and http port. Also, bootstrap CodeDeploy Agent Installation.
+
+Parameters: 
+  VpcId: 
+    Description: Use an existing VPC
+    Type: AWS::EC2::VPC::Id
+    ConstraintDescription: VPC ID must begin with 'vpc-' or leave blank to have a new VPC created 
+    Default: <vpc-xxxxx>
+  KeyName:
+    Description: Name of SSH KeyPair
+    Type: 'AWS::EC2::KeyPair::KeyName'
+    ConstraintDescription: Provide the name of an existing SSH key pair
+    Default: <keypairname>
+
+Resources:
+  MyEC2Instance:
+    Type: 'AWS::EC2::Instance'
+    Properties:
+      InstanceType: t2.micro
+      ImageId: ami-031de832435c04744
+      KeyName: !Ref KeyName
+      SecurityGroups:
+       - Ref: MyInstanceSecurityGroup
+      Tags:
+        -
+          Key: Name
+          Value: production
+      UserData:
+        Fn::Base64: !Sub |
+          #!/bin/bash -xe
+          sudo yum update -y
+          sudo yum install -y ruby wget
+          wget https://aws-codedeploy-eu-west-1.s3.eu-west-1.amazonaws.com/latest/install
+          chmod +x ./install
+          sudo ./install auto
+  MyInstanceSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Enable SSH and HTTP access via user defined port
+      SecurityGroupIngress:
+      - IpProtocol: tcp
+        FromPort: 80
+        ToPort: 80
+        CidrIp: 0.0.0.0/0
+      - IpProtocol: tcp
+        FromPort: 22
+        ToPort: 22
+        CidrIp: 0.0.0.0/0
+
+Outputs: 
+  InstanceID:
+    Description: The Instance ID launched
+    Value: !Ref MyEC2Instance
