@@ -1,4 +1,4 @@
-# Source Code for my presentation at ANST 2019 Testers Conference
+# Source Code for my CICD presentation at ANST 2019 Testers Conference
 ## Theme: Quality, a collective responsibility
 
 ## Presentation - Integrating test plans in a CI/CD Pipeline - with Demo
